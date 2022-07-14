@@ -24,7 +24,7 @@
 </svelte:head>
 
 <main class="index">
-	<LottiePlayer {lotties} />
+	<LottiePlayer lotties={lotties} />
 	<b><h1>{siteName}</h1></b>
 </main>
 
