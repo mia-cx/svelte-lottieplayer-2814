@@ -1,6 +1,7 @@
 <script lang="ts">
   import { browser } from '$app/env';
   import web, { type AnimationItem } from 'lottie-web';
+  import { onMount } from 'svelte';
 
   export let lotties: any[];
 
@@ -13,54 +14,23 @@
   let staticAnimations: AnimationItem[] = [];
 
   if (browser) {
-    for (let lottie of lotties) {
-      animations.push(
-        web.loadAnimation({
-          container: document.getElementById('lottie')!,
-          loop: true,
-          autoplay: true,
-          renderer: 'svg',
-          animationData: lotties[i],
-          name: `${Math.random()}`
-        })
-      );
-    }
-    staticAnimations.push(
-      web.loadAnimation({
-        container: document.getElementById('lottie')!,
-        loop: true,
-        autoplay: true,
-        renderer: 'svg',
-        path: '/assets/lottie/intro.json',
-        name: 'intro'
-      })
-    );
-    staticAnimations.push(
-      web.loadAnimation({
-        container: document.getElementById('lottie')!,
-        loop: true,
-        autoplay: true,
-        renderer: 'svg',
-        path: '/assets/lottie/headbang.json',
-        name: 'headbang'
-      })
-    );
-    staticAnimations.push(
-      web.loadAnimation({
-        container: document.getElementById('lottie')!,
-        loop: true,
-        autoplay: true,
-        renderer: 'svg',
-        path: '/assets/lottie/settle.json',
-        name: 'settle'
-      })
-    );
+    onMount(() => {
+      for (let lottie of lotties) {
+        animations.push(
+          web.loadAnimation({
+            container: document.getElementById('lottie')!,
+            loop: true,
+            autoplay: true,
+            renderer: 'svg',
+            animationData: lotties[i],
+            name: `${Math.random()}`
+          })
+        );
+      }
+    });
 
     for (let animation of animations) {
       console.log('AnimationItem (using animationData): ', animation);
-    }
-    for (let animation of staticAnimations) {
-      console.log('AnimationItem (using path): ', animation);
     }
   }
 </script>
