@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap');
+:root {
+  --background-color: #fffaf7;
+  --foreground-color: #272D3B;
+}
+
+html,
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: 'Monsterrat', 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Monsterrat', 'Roboto', sans-serif;
+}
+
+b {
+  text-shadow: 0px 1px, 1px 0px, 1px 1px;
+  letter-spacing: 2px;
+}
